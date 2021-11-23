@@ -1,3 +1,5 @@
+
+/*
 class CollectableObject extends GameObject { 
   private Collectable collectable;
   private GameObject replaceWith;
@@ -19,4 +21,4 @@ class CollectableObject extends GameObject {
       this.willReplaceByAnotherGameObject = false;
     }
   }
-  
+  */
