@@ -32,21 +32,7 @@ class GameObject {
     }
     hasHoverImage = false;
     mouseIsHovering = false;
-  }
-  
-  
-   public GameObject(String identifier, int x, int y,String gameObjectImageFile) {
-    this.identifier = identifier;
-    this.x = x;
-    this.y = y;
-    this.hasImage = !gameObjectImageFile.equals(""); 
-    if(this.hasImage) {
-       this.gameObjectImage = loadImage(gameObjectImageFile);
-    }
-    hasHoverImage = false;
-    mouseIsHovering = false;
-    isCollectable = true;
-  }
+  }   
   
   //initialized the hoverImage if used 
   
@@ -81,14 +67,6 @@ class GameObject {
   
   public String getIdentifier() {
     return this.identifier;
-  }
-
-  @Override 
-  public boolean equals(Object obj) { 
-    if (obj == this) { return true; } 
-    if (obj == null || obj.getClass() != this.getClass()) { return false; } 
-    GameObject otherGameObject = (GameObject) obj; 
-    return otherGameObject.getIdentifier().equals(this.identifier);
   }
   
 }

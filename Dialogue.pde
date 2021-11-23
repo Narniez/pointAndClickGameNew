@@ -1,9 +1,9 @@
 class Dialogue
 {
   //variables for black begin screen, text and clicksystem
-  int textSizeBlackScreen = 35;
-  int textXBlackScreen = 250;
-  int textYBlackScreen = 550;
+  int textSizeBlackScreen = 45;
+  int textXBlackScreen = 175;
+  int textYBlackScreen = 550; 
   int textColor = 255;
   int perMouseClick = 0;
   boolean blackScreenHere = true;
@@ -137,31 +137,80 @@ class Dialogue
   {
     switch (perMouseClick) {
     case 1: 
-      textSize(textSizeBlackScreen);
+      //textSize(textSizeBlackScreen);
       fill(textColor);
-      text("Max: Yo guys look at this poster, the hippies are throwing a party tonight.", textXBlackScreen, textYBlackScreen );
+      textFont(mono);
+      String s = "It’s a nice Friday afternoon and school is finally over for the week. You and your best friends are walking home and making plans for the evening when, suddenly, one of your friends notices something...";
+      text(s,textXBlackScreen, textYBlackScreen,1600,800);
       break;
     case 2: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      text("Daisy: No way are they still here. I thought they left.", textXBlackScreen, textYBlackScreen );
+      String s1 = "Max: Yo guys look at this poster, the hippies are throwing a party tonight.";
+      text(s1,textXBlackScreen, textYBlackScreen,1600,800);
       break;
     case 3: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      text("John (You): Nah, they just moved into the (party setting, e.g woods or by the lake)", textXBlackScreen, textYBlackScreen );
+      String s2 = "Daisy: No way are they still here, I thought they left?";
+      text(s2,textXBlackScreen, textYBlackScreen,1600,800);
       break;
     case 4: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      text("Max: We’ll need a disguise to blend in. Do you have anything?", textXBlackScreen, textYBlackScreen );
+      text("", textXBlackScreen, textYBlackScreen );
+      String s3 = "Player: Nah , they just moved into the woods by the lake.";
+      text(s3,textXBlackScreen, textYBlackScreen,1600,800);
       break;
     case 5: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      text("John (You): Probably I’ll just need to look around my room.", textXBlackScreen, textYBlackScreen );
+      String s4 = "Max: We’ll need a disguise to blend in. Do you have anything?";
+      text(s4,textXBlackScreen, textYBlackScreen,1600,800);
       break;
     case 6: 
+      textSize(textSizeBlackScreen);
+      fill(textColor);
+      String s5 = "Player: Probably I’ll just need to look around my room.?";
+      text(s5,textXBlackScreen, textYBlackScreen,1600,800);
+      break;
+    case 7: 
+      textSize(textSizeBlackScreen);
+      fill(textColor);
+      String s6 = "You all go to your room and try to put together a disguise. Youre not into the hippie style at all, so this is gonna be a challenge. What do those people wear, anyway? ";
+      text(s6,textXBlackScreen, textYBlackScreen,1600,800);
+      break;
+    case 8: 
+      textSize(textSizeBlackScreen);
+      fill(textColor);
+      String s7 = "Player: Guys, do you think this floral shirt will work?";
+      text(s7,textXBlackScreen, textYBlackScreen,1600,800);
+      break;
+     case 9: 
+      textSize(textSizeBlackScreen);
+      fill(textColor);
+      String s8 = "Daisy:Yes! Oh, these sunglasses would look good on you.";
+      text(s8,textXBlackScreen, textYBlackScreen,1600,800);
+      break;
+      case 10: 
+      textSize(textSizeBlackScreen);
+      fill(textColor);
+      String s9 = "It takes a while, but you manage to put together 3 convincing outfits. And now it’s time to party!";
+      text(s9,textXBlackScreen, 400,1600,800);
+      break;
+      case 11: 
+      textSize(textSizeBlackScreen);
+      fill(textColor);
+      String s10 = "Daisy: I wonder what type of music they’ll be playing?";
+      text(s10,textXBlackScreen, textYBlackScreen,1600,800);
+      break;
+      case 12: 
+      textSize(textSizeBlackScreen);
+      fill(textColor);
+      String s11 = "Max: I hope they’ve got alcohol there or better stuff…";
+      text(s11,textXBlackScreen, textYBlackScreen,1600,800);
+      break;
+    case 13: 
       fill(0);
       blackScreenHere = false;
       break;

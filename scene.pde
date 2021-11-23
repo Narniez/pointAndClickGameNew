@@ -25,6 +25,7 @@ class Scene {
   }
   
   
+  
   void updateScene(){
     
     if(backgroundImage != null){
@@ -35,15 +36,13 @@ class Scene {
       i.draw();
       if(i.mouseIsHovering && mousePressed){
         goToScene2 = true;   
-        i.x = 600;
-        i.y = 50;
       }     
     }    
     //draw the object and change current scene if you click on it 
     for(GameObject i : arrows){
       i.mouseMoved();
       i.draw();
-      if(i.mouseIsHovering && mousePressed && currentScene == 0 && (goToScene2)){
+      if(i.mouseIsHovering && mousePressed && currentScene == 0){
         currentScene = 1;
       }
       else if(i.mouseIsHovering && mousePressed && currentScene == 1){
