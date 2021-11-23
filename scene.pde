@@ -11,8 +11,9 @@ class Scene {
   // create an object to add to the scene
   GameObject [] arrows;
   GameObject [] joint;  
+  GameObject [] jerryCan;
   
-   Scene(float xPos, float yPos, float imageHeight, float imageWidth, PImage backgroundImage,GameObject[] arrows,GameObject [] joint){
+   Scene(float xPos, float yPos, float imageHeight, float imageWidth, PImage backgroundImage,GameObject[] arrows,GameObject [] joint,GameObject[] jerryCan){
     this.xPos = xPos;
     this.yPos = yPos;
     this.imageHeight = imageHeight;
@@ -20,6 +21,7 @@ class Scene {
     this.backgroundImage = backgroundImage;
     this.arrows = arrows;
     this.joint = joint; 
+    this.jerryCan = jerryCan;
   }
   
   
@@ -32,9 +34,11 @@ class Scene {
       i.mouseMoved();
       i.draw();
       if(i.mouseIsHovering && mousePressed){
-        goToScene2 = true;      
-      }
-    }
+        goToScene2 = true;   
+        i.x = 600;
+        i.y = 50;
+      }     
+    }    
     //draw the object and change current scene if you click on it 
     for(GameObject i : arrows){
       i.mouseMoved();
