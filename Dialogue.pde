@@ -6,7 +6,13 @@ class Dialogue
   int textYBlackScreen = 550; 
   int textColor = 255;
   int perMouseClick = 0;
+  int perMouseClick2 = 0;
   boolean blackScreenHere = true;
+
+  //variables for drawDialogueFirstScene
+  boolean beginOfDialogueFirstScene = true;
+  int textXBeginScene = 200;
+  int textYBeginScene = 1025;
 
   //variables for interacting with objects
   int jointX = 800; //120
@@ -37,90 +43,7 @@ class Dialogue
 
   //under here is the code for interacting with an object and showing text
   //if interacted with object
-  void mouseClickInteractions()
-  {
-    //if you go to the second scene
-    /*if ((mouseX >= arrowToSecondSceneX && mouseX <= arrowToSecondSceneX + 50) && (mouseY >= arrowToSecondSceneY && mouseY <= arrowToSecondSceneY + 50))
-     {
-     mainSceneInteract = false;
-     arrowToSecondScene = true;
-     }
-     //if you go back to the mainscene 
-     if ((mouseX >= arrowToFirstSceneX && mouseX <= arrowToFirstSceneX + 50) && (mouseY >= arrowToFirstSceneY && mouseY <= arrowToFirstSceneY + 50))
-     {
-     mainSceneInteract = true;
-     }
-     */
-    if ((mouseX >= wineBottleX && mouseX <= wineBottleX +65) && (mouseY >= wineBottleY && mouseY <= wineBottleY + 125)) //wineObject 
-    {
-      goOverWineBottle = true;
-      interactionObject = true;
-      startTime = seconds;
-    }
-    //if the joint has been picked up
-    if ((mouseX >= jointX && mouseX <= jointX +120) && (mouseY >= jointY && mouseY <= jointY + 100)) //jointObject
-    {
-      goOverJoint = true;
-      interactionObject = true;
-      startTime = seconds;
-    }
-  }
 
-  //showing text an amount of time
-  void timer()
-  {
-    println (startTime);
-    //converting millis into seconds
-    millis = millis();
-    seconds = millis/1000;
-
-    //if there is an interaction with an object, timer goes
-
-    if (interactionObject)
-    {
-      if (seconds >= startTime && seconds <= startTime + timerdelay)
-      {
-
-
-
-        //if you are in the main scene, this is gonna run
-        if (mainSceneInteract == true)
-        {
-          fill(0, 100);
-          rect(0, 1000, 1920, 50); //black text bar
-          fill(255);
-          
-           if(goOverWineBottle == true)
-          {
-          if (foundWineBottle == true)
-          {
-            text("John (You): I can't find anyting besides the joint here", textObjectX, textObjectY);
-          } else if (foundJoint == false)
-          {
-            text("John (You): text when finding joint", textObjectX, textObjectY);
-          }
-          }
-          
-          if(goOverJoint == true)
-          {
-          if (foundJoint == true)
-          {
-            text("John (You): I can't find anyting besides the joint here", textObjectX, textObjectY);
-          } else if (foundJoint == false)
-          {
-            text("John (You): text when finding joint", textObjectX, textObjectY);
-          }
-          }
-        }
-      }
-      if (seconds > startTime + timerdelay)
-      {
-        interactionObject = false;
-        foundJoint = true;
-        goOverJoint = false;
-      }
-    }
-  }
 
   //under here is the code for the beginning screen, text and mouseclick
   void mouseClick()
@@ -130,7 +53,75 @@ class Dialogue
     {
       perMouseClick++;
     }
+    if (beginOfDialogueFirstScene && blackScreenHere == false)
+    {
+      perMouseClick2++;
+    }
   }
+
+
+
+  void drawDialogueFirstScene()
+  {
+    {
+      switch (perMouseClick2) {
+      case 1: 
+        //textSize(textSizeBlackScreen);
+        fill(0, 100);
+        rect(0, 975, 1920, 100); //black bar inventory
+        fill(textColor);
+        textFont(mono);
+        text(" Max: Yo, this party doesn’t totally suck after all.", textXBeginScene, textYBeginScene);
+        image(max, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100);
+        textSize(textSizeBlackScreen);
+        fill(textColor);
+        text("Daisy: I guess the hippies got cooler, huh?", textXBeginScene, textYBeginScene);
+        image(daisy, 50, 950);
+        break;
+      case 3: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100);
+        textSize(textSizeBlackScreen);
+        fill(textColor);
+        text("Player: Seems like it.", textXBeginScene, textYBeginScene);
+        image(john, 50, 950);
+        break;
+      case 4: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100);
+        textSize(textSizeBlackScreen);
+        fill(textColor);
+        text("Daisy: Alright guys, now that we’re here let’s have some fun!", textXBeginScene, textYBeginScene);
+        image(daisy, 50, 950);
+        break;
+      case 5: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100);
+        textSize(textSizeBlackScreen);
+        fill(textColor);
+        text("Player: Hell yeah!", textXBeginScene, textYBeginScene);
+        image(john, 50, 950);
+        break;
+      case 6: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100);
+        textSize(textSizeBlackScreen);
+        fill(textColor);
+        text("Max: Last one to get a drink is a loser!!!", textXBeginScene, textYBeginScene);
+        image(max, 50, 950);
+        break;
+      case 7: 
+        beginOfDialogueFirstScene = false;
+        break;
+      }
+    }
+  }
+
+
 
   // looks what number variable is at and displays that case, dialogue in beginning (black screen)
   void drawDialogue()
@@ -140,75 +131,62 @@ class Dialogue
       //textSize(textSizeBlackScreen);
       fill(textColor);
       textFont(mono);
-      String s = "It’s a nice Friday afternoon and school is finally over for the week. You and your best friends are walking home and making plans for the evening when, suddenly, one of your friends notices something...";
-      text(s,textXBlackScreen, textYBlackScreen,1600,800);
+      text(" It’s a nice Friday afternoon and school is finally over \n for the week. You and your best friends are walking home \n and making plans for the  evening when, suddenly, \n one of your friends notices something...", textXBlackScreen, textYBlackScreen);
       break;
     case 2: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      String s1 = "Max: Yo guys look at this poster, the hippies are throwing a party tonight.";
-      text(s1,textXBlackScreen, textYBlackScreen,1600,800);
+      text("Max: Yo guys look at this poster, the hippies are throwing a party \n tonight.", textXBlackScreen, textYBlackScreen);
       break;
     case 3: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      String s2 = "Daisy: No way are they still here, I thought they left?";
-      text(s2,textXBlackScreen, textYBlackScreen,1600,800);
+      text("Daisy: No way are they still here, I thought they left?", textXBlackScreen, textYBlackScreen);
       break;
     case 4: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      text("", textXBlackScreen, textYBlackScreen );
-      String s3 = "Player: Nah , they just moved into the woods by the lake.";
-      text(s3,textXBlackScreen, textYBlackScreen,1600,800);
+      text("Player: Nah , they just moved into the woods by the lake.", textXBlackScreen, textYBlackScreen);
       break;
     case 5: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      String s4 = "Max: We’ll need a disguise to blend in. Do you have anything?";
-      text(s4,textXBlackScreen, textYBlackScreen,1600,800);
+      text("Max: We’ll need a disguise to blend in. Do you have anything?", textXBlackScreen, textYBlackScreen);
       break;
     case 6: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      String s5 = "Player: Probably I’ll just need to look around my room.?";
-      text(s5,textXBlackScreen, textYBlackScreen,1600,800);
+      text("Player: Probably I’ll just need to look around my room.?", textXBlackScreen, textYBlackScreen);
       break;
     case 7: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      String s6 = "You all go to your room and try to put together a disguise. Youre not into the hippie style at all, so this is gonna be a challenge. What do those people wear, anyway? ";
-      text(s6,textXBlackScreen, textYBlackScreen,1600,800);
+      text(" You all go to your room and try to put together a disguise. Youre \n not into the hippie style at all, so this is gonna be a challenge. \n What do those people wear, anyway? ", textXBlackScreen, textYBlackScreen);
       break;
     case 8: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      String s7 = "Player: Guys, do you think this floral shirt will work?";
-      text(s7,textXBlackScreen, textYBlackScreen,1600,800);
+      text("Player: Guys, do you think this floral shirt will work?", textXBlackScreen, textYBlackScreen);
       break;
-     case 9: 
+    case 9: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      String s8 = "Daisy:Yes! Oh, these sunglasses would look good on you.";
-      text(s8,textXBlackScreen, textYBlackScreen,1600,800);
+      text("Daisy: Yes! Oh, these sunglasses would look good on you.", textXBlackScreen, textYBlackScreen);
       break;
-      case 10: 
+    case 10: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      String s9 = "It takes a while, but you manage to put together 3 convincing outfits. And now it’s time to party!";
-      text(s9,textXBlackScreen, 400,1600,800);
+      text(" It takes a while, but you manage to put together 3 convincing \n outfits. And now it’s time to party!", textXBlackScreen, textYBlackScreen);
       break;
-      case 11: 
+    case 11: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      String s10 = "Daisy: I wonder what type of music they’ll be playing?";
-      text(s10,textXBlackScreen, textYBlackScreen,1600,800);
+      text("Daisy: I wonder what type of music they’ll be playing?", textXBlackScreen, textYBlackScreen);
       break;
-      case 12: 
+    case 12: 
       textSize(textSizeBlackScreen);
       fill(textColor);
-      String s11 = "Max: I hope they’ve got alcohol there or better stuff…";
-      text(s11,textXBlackScreen, textYBlackScreen,1600,800);
+      text("Max: I hope they’ve got alcohol there or better stuff…", textXBlackScreen, textYBlackScreen);
       break;
     case 13: 
       fill(0);
@@ -217,9 +195,8 @@ class Dialogue
     }
   }
   //locates object, isnt applied to final game
-   void locateObject()
-   {
-   rect(975, 300, 65, 125);
-   }
-   
+  void locateObject()
+  {
+    rect(975, 300, 65, 125);
+  }
 }
