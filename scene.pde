@@ -20,8 +20,8 @@ class Scene {
     this.imageWidth = imageWidth;
     this.backgroundImage = backgroundImage;
     this.arrows = arrows; 
-    this.arrowVW = arrowVW;
     this.arrowBar = arrowBar;
+      this.arrowVW = arrowVW;
   }
   
   
@@ -34,13 +34,19 @@ class Scene {
     for(GameObject i : arrowBar){
       i.mouseMoved();
       i.draw();
+      if(canGoToBar){
       if(i.mouseIsHovering && mousePressed && currentScene == 0){
         currentScene = 2;   
       }
       else if(i.mouseIsHovering && mousePressed && currentScene == 2){
         currentScene = 0;
       }
-    }    
+    }  
+     else if(i.mouseIsHovering){
+        textSize(20);
+        text("The Hippie in front \n won't let you enter",1340,650);
+   }
+ }
     //draw the object and change current scene if you click on it 
     for(GameObject i : arrows){
       i.mouseMoved();
@@ -62,11 +68,11 @@ class Scene {
         i.mouseMoved();
         i.draw();
         if(canGoToVW){
-        if(i.mouseIsHovering && mousePressed && currentScene == 0){
+        if(i.mouseIsHovering && mousePressed && currentScene == 4){
             currentScene = 3;
         }
         else if(i.mouseIsHovering && mousePressed && currentScene == 3) {
-          currentScene = 0;
+          currentScene = 4;
         }
       }  
       else if (i.mouseIsHovering){

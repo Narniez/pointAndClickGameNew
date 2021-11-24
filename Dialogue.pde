@@ -7,9 +7,11 @@ class Dialogue
   int textColor = 255;
   int perMouseClick = 0;
   int perMouseClick2 = 0;
+  int perMouseClick3 = 0;
   boolean blackScreenHere = true;
 
   //variables for drawDialogueFirstScene
+  boolean watermission = false;
   boolean beginOfDialogueFirstScene = true;
   int textXBeginScene = 200;
   int textYBeginScene = 1025;
@@ -39,10 +41,184 @@ class Dialogue
   //text allign
   int textObjectX = 30;
   int textObjectY = 1035;
+  int widthHippie = 100;
+  int heigthHippie = 280;
 
 
-  //under here is the code for interacting with an object and showing text
-  //if interacted with object
+
+  //interacting with hippies
+  boolean allowingToTalkToHippie = false;
+  boolean talkingToHippiesWater = false;
+  boolean talkHippie1 = false;
+  boolean  talkHippie2 = false;
+  boolean  talkHippie3 = false;
+  boolean talkHippie4 = false;
+  boolean talkHippie5 = false;
+  int textXTalkingHippie2Line= 200;
+  int textYTalkingHippie2Line = 1000;
+  int textSizeTalkingHippie2Line= 30;
+  int textSizeTalkingHippie1Line= 35;
+
+  int textXTalkingHippie1Line = 200;
+  int textYTalkingHippie1Line = 1025;
+
+  void hippieTalk()
+  {
+    //text lines of hippie 2
+
+    //when watermission is active
+ 
+      //text lines of hippie 1
+      if (talkHippie1 && talkingToHippiesWater)
+      {
+        switch(perMouseClick3)
+        {
+        case 1:
+          fill(0, 100);
+          rect(0, 975, 1920, 100); 
+          fill(textColor);
+          textFont(mono);
+          textSize (textSizeTalkingHippie1Line);
+          text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+          image(john, 50, 950);
+          break;
+        case 2: 
+          fill(0, 100);
+          rect(0, 975, 1920, 100); 
+          fill(textColor);
+          textFont(mono);
+          textSize (textSizeTalkingHippie1Line);
+          text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);
+          image(hippie1, 50, 950);
+          break;
+        case 3: 
+          perMouseClick3 = 0;
+          talkHippie1 = false;
+          break;
+        }
+      }
+
+      //text lines of hippie 2
+      if (talkHippie2 && talkingToHippiesWater)
+      {
+        switch(perMouseClick3)
+        {
+        case 1:
+          fill(0, 100);
+          rect(0, 975, 1920, 100); 
+          fill(textColor);
+          textFont(mono);
+          textSize (textSizeTalkingHippie1Line);
+          text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+          image(john, 50, 950);
+          break;
+        case 2: 
+          fill(0, 100);
+          rect(0, 975, 1920, 100); 
+          fill(textColor);
+          textFont(mono);
+          textSize (textSizeTalkingHippie1Line);
+          text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+          image(hippie2, 50, 950);        
+          break;
+        case 3: 
+          perMouseClick3 = 0;
+          talkHippie2 = false;
+          break;
+        }
+      }
+
+      //textlines of hippie 3
+      if (talkHippie3 && watermission)
+      { 
+        switch(perMouseClick3)
+        {
+        case 1:
+          fill(0, 100);
+          rect(0, 975, 1920, 100); 
+          fill(textColor);
+          textFont(mono);
+          textSize (textSizeTalkingHippie1Line);
+          text("Hey, can I maybe grab myself a drink?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+          image(john, 50, 950);
+          break;
+        case 2: 
+          fill(0, 100);
+          rect(0, 975, 1920, 100); 
+          fill(textColor);
+          textFont(mono);
+          textSize (textSizeTalkingHippie2Line);
+          text(" Nah man, the booth isn’t open right now. I’m too high to be dealing with people right now. \n Maybe if I had some water, I would feel better.", textXTalkingHippie2Line, textYTalkingHippie2Line);
+          image(hippie4, 50, 915);
+          break;
+        case 3: 
+          perMouseClick3 = 0;
+          talkingToHippiesWater = true;
+          talkHippie3 = false;
+          break;
+        }
+      }
+      //text lines of hippie 4
+      if (talkHippie4 && talkingToHippiesWater)
+      {
+        switch(perMouseClick3)
+        {
+        case 1:
+          fill(0, 100);
+          rect(0, 975, 1920, 100); 
+          fill(textColor);
+          textFont(mono);
+          textSize (textSizeTalkingHippie1Line);
+          text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+          image(john, 50, 950);
+          break;
+        case 2: 
+          fill(0, 100);
+          rect(0, 975, 1920, 100); 
+          fill(textColor);
+          textFont(mono);
+          textSize (textSizeTalkingHippie1Line);
+          text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+          image(hippie3, 50, 950);        
+          break;
+        case 3: 
+          perMouseClick3 = 0;
+          talkHippie4 = false;
+          break;
+        }
+      }
+      
+      //text lines of hippie 5
+      if (talkHippie5 && talkingToHippiesWater)
+      {
+        switch(perMouseClick3)
+        {
+        case 1:
+          fill(0, 100);
+          rect(0, 975, 1920, 100); 
+          fill(textColor);
+          textFont(mono);
+          textSize (textSizeTalkingHippie1Line);
+          text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+          image(john, 50, 950);
+          break;
+        case 2: 
+          fill(0, 100);
+          rect(0, 975, 1920, 100); 
+          fill(textColor);
+          textFont(mono);
+          textSize (textSizeTalkingHippie1Line);
+          text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+          image(hippie5, 50, 950);        
+          break;
+        case 3: 
+          perMouseClick3 = 0;
+          talkHippie5 = false;
+          break;
+        }
+      }
+    
+  }
 
 
   //under here is the code for the beginning screen, text and mouseclick
@@ -57,8 +233,32 @@ class Dialogue
     {
       perMouseClick2++;
     }
+    if (mouseX >= 1750 && mouseX <= 1750 + widthHippie && mouseY >= 590 && mouseY <= 590 + heigthHippie && currentScene == 0 && allowingToTalkToHippie == true )
+    {
+      perMouseClick3++;
+      talkHippie5 = true;
+    }
+    if (mouseX >= 1560 && mouseX <= 1560 + widthHippie && mouseY >= 600 && mouseY <= 600 + heigthHippie && currentScene == 0 && allowingToTalkToHippie == true )
+    {
+      perMouseClick3++;
+      talkHippie4 = true;
+    }
+    if (mouseX >= 1230 && mouseX <= 1230 + widthHippie && mouseY >= 490 && mouseY <= 490 + heigthHippie && currentScene == 0 && allowingToTalkToHippie == true )
+    {
+      perMouseClick3++;
+      talkHippie3 = true;
+    }
+    if (mouseX >= 1080 && mouseX <= 1080 + widthHippie && mouseY >= 670 && mouseY <= 670 + heigthHippie && currentScene == 0 && allowingToTalkToHippie == true)
+    {
+      perMouseClick3++;
+      talkHippie2 = true;
+    }
+    if (mouseX >= 870 && mouseX <= 870 + widthHippie && mouseY >= 510 && mouseY <= 510 + heigthHippie && currentScene == 0 && allowingToTalkToHippie == true)
+    {
+      perMouseClick3++;
+      talkHippie1 = true;
+    }
   }
-
 
 
   void drawDialogueFirstScene()
@@ -68,7 +268,7 @@ class Dialogue
       case 1: 
         //textSize(textSizeBlackScreen);
         fill(0, 100);
-        rect(0, 975, 1920, 100); //black bar inventory
+        rect(0, 975, 1920, 100); 
         fill(textColor);
         textFont(mono);
         text(" Max: Yo, this party doesn’t totally suck after all.", textXBeginScene, textYBeginScene);
@@ -115,6 +315,8 @@ class Dialogue
         image(max, 50, 950);
         break;
       case 7: 
+        watermission = true;
+        allowingToTalkToHippie = true;
         beginOfDialogueFirstScene = false;
         break;
       }
@@ -197,6 +399,6 @@ class Dialogue
   //locates object, isnt applied to final game
   void locateObject()
   {
-    rect(975, 300, 65, 125);
+    rect(870, 510, 100, 280);
   }
 }

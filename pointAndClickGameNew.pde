@@ -6,14 +6,21 @@ Scene scene01;
 Scene scene02;
 Scene scene03;
 Scene scene04;
+Scene scene05;
 Gif hippie1;
 Gif hippie2;
 Gif hippie3;
 Gif hippie4;
 Gif hippie5;
+Gif cultist1;
+Gif cultist2;
+Gif cultist3;
+Gif cultist4;
+Gif cultist5;
 Gif max;
 Gif john;
 Gif daisy;
+Gif john2;
 //keeps track of the scenes
 int currentScene; 
 
@@ -38,6 +45,8 @@ boolean hasJerryCan = false;
 boolean hasWineBottle = false;
 boolean canGoToVW = true;
 boolean canGoToTent = true;
+boolean canGoToBar = true;
+boolean isMidnight = true;
 void setup(){
   size(1920,1080);
   //fullScreen();
@@ -49,25 +58,37 @@ void setup(){
   
   //adds animation
   hippie1 = new Gif(this,"hippie1.gif");
-  hippie1.play();
-  
+  hippie1.play();  
   hippie2 = new Gif(this,"hippie2.gif");
-  hippie2.play();
-  
+  hippie2.play();  
   hippie3 = new Gif(this,"hippie3.gif");
-  hippie3.play();
-  
+  hippie3.play();  
   hippie4 = new Gif(this,"hippie4.gif");
   hippie4.play();
-  
   hippie5 = new Gif(this,"hippie5.gif");
   hippie5.play();
+  
+  cultist1 = new Gif(this,"cultist1.gif");
+  cultist1.play();  
+  cultist2 = new Gif(this,"cultist2.gif");
+  cultist2.play();  
+  cultist3 = new Gif(this,"cultist3.gif");
+  cultist3.play();  
+  cultist4 = new Gif(this,"cultist4.gif");
+  cultist4.play();
+  cultist5 = new Gif(this,"cultist5.gif");
+  cultist5.play();
+  
+  
+  
   
   max = new Gif(this,"max.gif");
   max.play();
   
   john = new Gif(this,"john1.gif");
   john.play();
+  john2 = new Gif(this,"john2.gif");
+  john2.play();
   
   daisy = new Gif(this,"daisy.gif");
   daisy.play();
@@ -77,7 +98,7 @@ void setup(){
   scene01 = new Scene (0,0,height,width,loadImage("mainScene1.png"),
   new GameObject[]{new GameObject("arrow1",1660,730,70,70,"arrowRight.png")},
   new GameObject[]{new GameObject("arrowBar",1320,650,40,40,"arrowUp.png")},
-  new GameObject[]{new GameObject("arrowVW",700,700,40,40,"arrowUp.png")});
+  new GameObject[]{/*new GameObject("arrowVW",700,700,40,40,"arrowUp.png")*/});
   
   scene02 = new Scene (0,0,height,width,loadImage("tentScene.png"),
    new GameObject[]{new GameObject("arrow1",800,900,70,70,"arrowDown.png")},
@@ -93,6 +114,11 @@ void setup(){
    new GameObject[]{},
    new GameObject[]{},
    new GameObject[]{new GameObject("arrowVW",900,960,70,70,"arrowDown.png")});
+   
+   scene05 = new Scene(0,0,height,width,loadImage("mainScene2.png"),
+   new GameObject[]{},
+   new GameObject[]{},
+   new GameObject[]{new GameObject("arrowVW",700,700,40,40,"arrowUp.png")});
 }
 
 void draw(){
@@ -137,11 +163,21 @@ void draw(){
   else if(currentScene == 3){
     scene04.updateScene();
   }
+  
+  if(currentScene == 4){
+    scene05.updateScene();
+    image(cultist1, 100, 700);
+    image(cultist2, 1020,540);
+    image(cultist3, 1420,650);
+    image(cultist4, 1570,480);
+    image(cultist5, 1680,550);
+    image(john2, 735,720);
+    
+    }
     //dialogue1.locateObject();
     inventory1.drawInventory();
   }
-  
-  
+    
   if(hasJerryCan){
     jerryCanX = 330;
     jerryCanY = 23;
@@ -151,7 +187,7 @@ void draw(){
   }
   
   if(hasWineBottle){
-    wineBottleX = 100;
+    wineBottleX = -30;
     wineBottleY = 30;
     wineBottleWidth = 200;
     wineBottleHeight = 140;
@@ -161,8 +197,8 @@ void draw(){
       {
         dialogue1.drawDialogueFirstScene();  
        }
+   dialogue1.hippieTalk();
 }
-
 
 void mouseClicked() {
   dialogue1.mouseClick();
