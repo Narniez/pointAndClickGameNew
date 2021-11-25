@@ -9,6 +9,7 @@ class dialogueMidnight {
   int flareGunLines = 0;
   int jerryCanLines = 0;
   int weaponLines = 0;
+  int endScreenLines = 0;
   
   int cultist1LinesChanged;
   int cultist2LinesChanged;
@@ -68,6 +69,9 @@ class dialogueMidnight {
     }
     if(hasFlareGun == true && mouseX >= 1420 && mouseX <= 1420 + widthHippie && mouseY >= 650 && mouseY <= 650 + heigthHippie){
       cultist3LinesChanged++;
+    }
+    if(endScreen){
+     endScreenLines++;
     }
   }
   
@@ -441,7 +445,33 @@ class dialogueMidnight {
         textFont(mono);
         text("Time to go rescue my friends!!", textXBeginScene, textYBeginScene);
         image(john2, 50, 950);
+        break;
+        
+    case 3:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        text("You gather all your courage and draw your weapon", textXBeginScene, textYBeginScene);
+        break;
+    case 4:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize(30);
+        text("As you prepare to hit the cultist guarding your friends \n something feels wrong.", textXBeginScene, textYBeginScene);
+        break;
+    case 5:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        text("Your legs feel unstable and your vision goes black.", textXBeginScene, textYBeginScene);
+        break;
+    case 6:
         endScreen = true;
+        satanMusic.stop();
         break;
      }
     }
@@ -536,7 +566,53 @@ class dialogueMidnight {
         break;
       }
     }
-   }   
+   }    
    
-   
+   void endScreen(){   
+       if(endScreen){   
+        playAmbulanceMusic++;
+       image(ambulance,0,0,width,height);
+       if(playAmbulanceMusic == 1){
+      ambulanceSound.loop(1,0.05);
+       }
+       switch(endScreenLines){
+     case 1: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100);
+        textSize(textSizeBlackScreen);
+        fill(textColor);
+        text("You wake up in a strange place. It looks like the back of a big car.", textXBeginScene, textYBeginScene);
+        break;
+     case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100);
+        textSize(textSizeBlackScreen);
+        fill(textColor);
+        text("You look around and realise you are in an ambulance.", textXBeginScene, textYBeginScene);
+        break;
+    case 3: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100);
+        textSize(textSizeBlackScreen);
+        fill(textColor);
+        text("Doctor: These damn teenagers taking drugs all the time…", textXBeginScene, textYBeginScene);
+        break;
+    case 4: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100);
+        textSize(textSizeBlackScreen);
+        fill(textColor);
+        text("Drugs? What do drugs have to do with everything?", textXBeginScene, textYBeginScene);
+        image(john2, 50, 950);
+        break;
+    case 5: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100);
+        textSize(textSizeBlackScreen);
+        fill(textColor);
+        text("Doctor: Son, you were tripping balls..", textXBeginScene, textYBeginScene);
+        break;
+       }
+     }
+   }
 }

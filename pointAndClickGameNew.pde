@@ -1,6 +1,7 @@
+import processing.video.*;
 import processing.sound.*;
-
 import gifAnimation.*;
+
 PFont mono;
 PImage jerryCan;
 PImage wineBottle;
@@ -29,6 +30,7 @@ Gif max;
 Gif john;
 Gif daisy;
 Gif john2;
+Movie ambulance;
 //keeps track of the scenes
 int currentScene; 
 
@@ -91,15 +93,21 @@ boolean showsKeyInTent = false;
 boolean hasBusKey = false;
 boolean isOverFireWorkBox = false;
 boolean endScreen = false;
+
 int playMusic = 0;
 int playBadMusic = 0;
+int playAmbulanceMusic =0;
 
 SoundFile partyMusic;
 SoundFile satanMusic;
 SoundFile pickupSound;
+SoundFile ambulanceSound;
 void setup(){
    //size(1920,1080);
   fullScreen();
+  
+  ambulance = new Movie(this,"policeLights.mp4");
+  ambulance.loop();
   
   //currentScene = 0;
   currentScene = 0;
@@ -137,9 +145,6 @@ void setup(){
   cultist5 = new Gif(this,"cultist5.gif");
   cultist5.play();
   
-  
-  
-  
   max = new Gif(this,"max.gif");
   max.play();
   
@@ -154,6 +159,7 @@ void setup(){
   partyMusic = new SoundFile(this,"soundParty2.mp3");
   satanMusic = new SoundFile(this,"soundBad.wav");
   pickupSound = new SoundFile(this,"pickupSound.wav");
+  ambulanceSound = new SoundFile(this,"ambulanceCut.wav");
   
   // add a sene and the objects in it 
   scene01 = new Scene (0,0,height,width,loadImage("mainScene1.png"),
@@ -188,11 +194,11 @@ void setup(){
    
 }
 
-void draw(){
-  
-  if(endScreen){
-    background(0);  
-  }
+void movieEvent(Movie ambulance){
+  ambulance.read();
+}
+
+void draw(){ 
   
    if (dialogue1.blackScreenHere)
   {
@@ -359,10 +365,12 @@ void draw(){
    if (dialogue1.beginOfDialogueFirstScene == true)
       {
         dialogue1.drawDialogueFirstScene();  
-      } 
+      }
    dialogueMidnight1.drawDialogueStart();
    dialogueMidnight1.talkToCultist();
-   dialogue1.hippieTalk();
+   dialogueMidnight1.endScreen();
+   dialogue1.hippieTalk(); 
+    
 }
 
 void mouseClicked() {
