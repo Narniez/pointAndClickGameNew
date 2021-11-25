@@ -93,6 +93,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+        talkHippie2 = false;
+        talkHippie3 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -102,6 +106,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 2: 
+        talkHippie2 = false;
+        talkHippie3 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -123,6 +131,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+        talkHippie2 = false;
+        talkHippie3 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -132,6 +144,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 2: 
+        talkHippie2 = false;
+        talkHippie3 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -153,6 +169,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+        talkHippie1 = false;
+        talkHippie3 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -162,6 +182,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 2: 
+        talkHippie1 = false;
+        talkHippie3 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -183,6 +207,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+              talkHippie1 = false;
+        talkHippie3 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -192,6 +220,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 2: 
+              talkHippie1 = false;
+        talkHippie3 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -214,6 +246,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+              talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -223,6 +259,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 2: 
+                    talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -246,6 +286,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+                    talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -255,6 +299,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 2: 
+                    talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -282,6 +330,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+                    talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -292,6 +344,10 @@ class Dialogue
 
         break;
       case 2: 
+                    talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -315,6 +371,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+                      talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie3 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -324,6 +384,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 2: 
+                      talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie3 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -344,6 +408,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+                      talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie3 = false;
+        talkHippie5 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -374,6 +442,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+                      talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -383,6 +455,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 2: 
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -403,6 +479,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -412,6 +492,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 2: 
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -421,6 +505,10 @@ class Dialogue
         image(hippie5, 50, 950);        
         break;
       case 7: 
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         askedForCorkscrew = true;   
         perMouseClick3 = 0;
         talkHippie5 = false;
@@ -434,6 +522,10 @@ class Dialogue
       switch(perMouseClick3)
       {
       case 1:
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -443,6 +535,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 2: 
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -452,6 +548,10 @@ class Dialogue
         image(hippie5, 50, 950);        
         break;
       case 3:
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -461,6 +561,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 4: 
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -470,6 +574,10 @@ class Dialogue
         image(hippie5, 50, 950); 
         break;
       case 5:
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -479,6 +587,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 6: 
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -488,6 +600,10 @@ class Dialogue
         image(hippie5, 50, 950); 
         break;
       case 7:
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         fill(0, 100);
         rect(0, 975, 1920, 100); 
         fill(textColor);
@@ -497,6 +613,10 @@ class Dialogue
         image(john, 50, 950);
         break;
       case 8: 
+                            talkHippie1 = false;
+        talkHippie2 = false;
+        talkHippie4 = false;
+        talkHippie3 = false;
         talkFriends = true;
         missionCorkscrewFinished = true;
         askedForCorkscrew = true;

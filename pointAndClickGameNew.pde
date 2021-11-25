@@ -9,6 +9,7 @@ PImage flareGun;
 PImage busKey;
 PImage brokenBottle;
 PImage rock;
+PImage startScene;
 Scene scene01;
 Scene scene02;
 Scene scene03;
@@ -70,6 +71,7 @@ Dialogue dialogue1 = new Dialogue();
 dialogueMidnight dialogueMidnight1 = new dialogueMidnight();
 Inventory inventory1 = new Inventory();
 
+boolean goToMainScene = false;
 boolean goToScene2 = false;
 boolean goToScene3 = false;
 boolean goToScene4 = false;
@@ -88,6 +90,7 @@ boolean isMidnight = false;
 boolean showsKeyInTent = false;
 boolean hasBusKey = false;
 boolean isOverFireWorkBox = false;
+boolean endScreen = false;
 int playMusic = 0;
 int playBadMusic = 0;
 
@@ -95,8 +98,8 @@ SoundFile partyMusic;
 SoundFile satanMusic;
 SoundFile pickupSound;
 void setup(){
-   size(1920,1080);
-  //fullScreen();
+   //size(1920,1080);
+  fullScreen();
   
   //currentScene = 0;
   currentScene = 0;
@@ -109,6 +112,7 @@ void setup(){
   busKey = loadImage("busKey.png");
   brokenBottle = loadImage("brokenBottle.png");
   rock = loadImage("rock1.png");
+  startScene = loadImage("startScene.png");
   
   //adds animation
   hippie1 = new Gif(this,"hippie1.gif");
@@ -186,9 +190,13 @@ void setup(){
 
 void draw(){
   
+  if(endScreen){
+    background(0);  
+  }
+  
    if (dialogue1.blackScreenHere)
   {
-  background(0);
+  image(startScene,0,0,width,height);
   dialogue1.drawDialogue();
   }
   
@@ -282,7 +290,7 @@ void draw(){
     if(mouseX >= rockX && mouseX <= rockX + flareGunWidth &&
        mouseY >= rockY && mouseY <= rockY + rockHeight && mousePressed) {
         hasBrokenBottle = true;
-       }       
+       } 
     }
         if(playMusic == 1 && (currentScene == 0 || currentScene == 1)){
     partyMusic.loop(1,0.05);
@@ -308,6 +316,10 @@ void draw(){
     wineBottleY = 30;
     wineBottleWidth = 200;
     wineBottleHeight = 140;
+    if(hasRock){
+      wineBottleX = 2000;
+      wineBottleY = 2000;
+    }
     image(wineBottle,wineBottleX,wineBottleY,wineBottleWidth,wineBottleHeight);
   }
   
@@ -336,8 +348,8 @@ void draw(){
   }
   
   if(hasBrokenBottle){
-    brokenBottleX = 480;
-    brokenBottleY = 25;
+    brokenBottleX = 600;
+    brokenBottleY = 30;
     brokenBottleWidth = 130;
     brokenBottleHeight = 130;
     rockX = 2000;

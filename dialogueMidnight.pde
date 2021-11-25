@@ -8,6 +8,7 @@ class dialogueMidnight {
   int cultist3Lines = 0;
   int flareGunLines = 0;
   int jerryCanLines = 0;
+  int weaponLines = 0;
   
   int cultist1LinesChanged;
   int cultist2LinesChanged;
@@ -54,6 +55,9 @@ class dialogueMidnight {
     }
     if(hasJerryCan){
       jerryCanLines++;
+    }
+    if(hasBrokenBottle){
+      weaponLines++;
     }
     
     if(hasFlareGun == true && mouseX >= 100 && mouseX <= 100 + widthHippie && mouseY >= 710 && mouseY <= 710 + heigthHippie){
@@ -330,7 +334,8 @@ class dialogueMidnight {
         rect(0, 975, 1920, 100); 
         fill(textColor);
         textFont(mono);
-        text("Yo,question, if you were to beat someone up right now, what would you use as a weapon?", textXBeginScene, textYBeginScene);
+        textSize(30);
+        text("Yo,question, if you were to beat someone up right now, \n what would you use as a weapon?", textXBeginScene, textYBeginScene);
         image(john2, 50, 950);
         break;
      case 2:
@@ -346,7 +351,7 @@ class dialogueMidnight {
         rect(0, 975, 1920, 100); 
         fill(textColor);
         textFont(mono);
-        text("Alright man relax, I thought you hippies were supposed to be chill.", textXBeginScene, textYBeginScene);
+        text("Alright man relax, \n I thought you hippies were supposed to be chill.", textXBeginScene, textYBeginScene);
         image(john2, 50, 950);
         break;
       }
@@ -356,7 +361,8 @@ class dialogueMidnight {
         rect(0, 975, 1920, 100); 
         fill(textColor);
         textFont(mono);
-        text("Yo,question, if you were to beat someone up right now, what would you use as a weapon?", textXBeginScene, textYBeginScene);
+        textSize(30);
+        text("Hey man, quick question: \n if you were to beat someone up right now, what would you use as a weapon?", textXBeginScene, textYBeginScene);
         image(john2, 50, 950);
         break;
      case 2:
@@ -382,7 +388,8 @@ class dialogueMidnight {
         rect(0, 975, 1920, 100); 
         fill(textColor);
         textFont(mono);
-        text("Yo,question, if you were to beat someone up right now, what would you use as a weapon?", textXBeginScene, textYBeginScene);
+        textSize(30);
+        text("Yo,question, if you were to beat someone up right now, \n what would you use as a weapon?", textXBeginScene, textYBeginScene);
         image(john2, 50, 950);
         break;
     case 3:
@@ -418,6 +425,25 @@ class dialogueMidnight {
         image(john2, 50, 950);
         break;
       }
+     switch(weaponLines){
+    case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        text("Alright! Now I have a weapon.", textXBeginScene, textYBeginScene);
+        image(john2, 50, 950);
+        break;
+    case 2:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        text("Time to go rescue my friends!!", textXBeginScene, textYBeginScene);
+        image(john2, 50, 950);
+        endScreen = true;
+        break;
+     }
     }
   }
 
