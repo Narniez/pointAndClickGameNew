@@ -396,6 +396,10 @@ class Dialogue
       break;
     }
   }
+  
+  void drawDialogueItems(){
+ 
+  }
   //locates object, isnt applied to final game
   void locateObject()
   {

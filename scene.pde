@@ -12,8 +12,9 @@ class Scene {
   GameObject [] arrows;
   GameObject [] arrowBar;  
   GameObject [] arrowVW;
+  GameObject [] arrowTent;
   
-   Scene(float xPos, float yPos, float imageHeight, float imageWidth, PImage backgroundImage,GameObject[] arrows,GameObject [] arrowBar,GameObject[] arrowVW){
+   Scene(float xPos, float yPos, float imageHeight, float imageWidth, PImage backgroundImage,GameObject[] arrows,GameObject [] arrowBar,GameObject[] arrowVW,GameObject [] arrowTent){
     this.xPos = xPos;
     this.yPos = yPos;
     this.imageHeight = imageHeight;
@@ -21,7 +22,8 @@ class Scene {
     this.backgroundImage = backgroundImage;
     this.arrows = arrows; 
     this.arrowBar = arrowBar;
-      this.arrowVW = arrowVW;
+    this.arrowVW = arrowVW;
+    this.arrowTent = arrowTent;
   }
   
   
@@ -52,11 +54,11 @@ class Scene {
       i.mouseMoved();
       i.draw();
       if(canGoToTent){
-      if(i.mouseIsHovering && mousePressed && currentScene == 0){
+      if(i.mouseIsHovering && mousePressed && currentScene == 4){
         currentScene = 1;
       }
       else if(i.mouseIsHovering && mousePressed && currentScene == 1){
-        currentScene = 0;
+        currentScene = 4;
       }    
     }
     else if(i.mouseIsHovering) {
@@ -67,7 +69,7 @@ class Scene {
     for(GameObject i : arrowVW ){
         i.mouseMoved();
         i.draw();
-        if(canGoToVW){
+        if(canGoToVW && hasBusKey){
         if(i.mouseIsHovering && mousePressed && currentScene == 4){
             currentScene = 3;
         }
@@ -77,7 +79,15 @@ class Scene {
       }  
       else if (i.mouseIsHovering){
         textSize(20);
-        text("Can't go in here \n yet",700,700);
+        text("I need keys to \n go in here ",700,700);
+      }
+    }
+    for(GameObject i : arrowTent){
+      i.mouseMoved();
+      i.draw();
+      if(i.mouseIsHovering){
+        textSize(20);
+        text("Can't go in here yet.",1600,850);
       }
     }
   }
