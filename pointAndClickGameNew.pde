@@ -61,12 +61,13 @@ float brokenBottleY;
 float brokenBottleWidth;
 float brokenBottleHeight;
 
-float rockX = 1300;
-float rockY = 800;
+float rockX = 1320;
+float rockY = 790;
 float rockWidth = 80;
 float rockHeight = 80;
 
 Dialogue dialogue1 = new Dialogue();
+dialogueMidnight dialogueMidnight1 = new dialogueMidnight();
 Inventory inventory1 = new Inventory();
 
 boolean goToScene2 = false;
@@ -82,7 +83,7 @@ boolean hasBrokenBottle = false;
 boolean canGoToVW = true;
 boolean canGoToTent = true;
 boolean canGoToBar = false;
-boolean isMidnight = true;
+boolean isMidnight = false;
 boolean showsKeyInTent = false;
 boolean hasBusKey = false;
 boolean isOverFireWorkBox = false;
@@ -106,7 +107,7 @@ void setup(){
   flareGun = loadImage("flareGun1.png");
   busKey = loadImage("busKey.png");
   brokenBottle = loadImage("brokenBottle.png");
-  rock = loadImage("rock.png");
+  rock = loadImage("rock1.png");
   
   //adds animation
   hippie1 = new Gif(this,"hippie1.gif");
@@ -236,6 +237,11 @@ void draw(){
     scene03.updateScene();
     image(wineBottle,wineBottleX,wineBottleY,wineBottleWidth,wineBottleHeight);
     if(mouseX >= wineBottleX && mouseX <= wineBottleX + wineBottleWidth &&
+       mouseY >= wineBottleY && mouseY <= wineBottleY + wineBottleHeight){
+         text("A bottle of wine, Nice! Wait, it hasn’t been opened yet. Awh man, gotta find a corkscrew.", 200, 950);
+        image(john, 50, 850);
+       }
+    if(mouseX >= wineBottleX && mouseX <= wineBottleX + wineBottleWidth &&
        mouseY >= wineBottleY && mouseY <= wineBottleY + wineBottleHeight && mousePressed){
          pickupSound.play();
          hasWineBottle = true;
@@ -271,9 +277,7 @@ void draw(){
     if(mouseX >= rockX && mouseX <= rockX + flareGunWidth &&
        mouseY >= rockY && mouseY <= rockY + rockHeight && mousePressed) {
         hasBrokenBottle = true;
-       }
-    
-    
+       }       
     }
         if(playMusic == 1 && (currentScene == 0 || currentScene == 1)){
     partyMusic.loop(1,0.05);
@@ -338,10 +342,14 @@ void draw(){
    if (dialogue1.beginOfDialogueFirstScene == true)
       {
         dialogue1.drawDialogueFirstScene();  
-       }
+      } 
+   dialogueMidnight1.drawDialogueStart();
+   dialogueMidnight1.talkToCultist();
    dialogue1.hippieTalk();
 }
 
 void mouseClicked() {
+  
   dialogue1.mouseClick();
+  dialogueMidnight1.mouseClick();
 }

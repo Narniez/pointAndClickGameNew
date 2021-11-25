@@ -10,6 +10,7 @@ class Dialogue
   int perMouseClick3 = 0;
   boolean blackScreenHere = true;
 
+
   //variables for drawDialogueFirstScene
   boolean watermission = false;
   boolean beginOfDialogueFirstScene = true;
@@ -47,9 +48,12 @@ class Dialogue
 
 
   //interacting with hippies
+  boolean backToScene = true;
+  boolean talkingAboutWaterHippie3 = true;
   boolean allowingToTalkToHippie = false;
   boolean talkingToHippiesWater = false;
   boolean askedForWater = false;
+  boolean missionCorkscrew = false;
   boolean talkHippie1 = false;
   boolean  talkHippie2 = false;
   boolean  talkHippie3 = false;
@@ -66,6 +70,11 @@ class Dialogue
   void hippieTalk()
   {
     //text lines of hippie 2
+
+if (hasWineBottle)
+{ 
+  missionCorkscrew = true;
+}
 
     //when watermission is active
 
@@ -94,6 +103,35 @@ class Dialogue
         break;
       case 3: 
         askedForWater = true;
+        perMouseClick3 = 0;
+        talkHippie1 = false;
+        break;
+      }
+    }
+
+    if (talkHippie1 && missionCorkscrew && hasWineBottle)
+    {
+      switch(perMouseClick3)
+      {
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Yo, do you have anything I could open this bottle with?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("uhh, can't help, sorry.", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(hippie1, 50, 950);
+        break;
+      case 3: 
         perMouseClick3 = 0;
         talkHippie1 = false;
         break;
@@ -131,8 +169,37 @@ class Dialogue
       }
     }
 
+    if (talkHippie2 && missionCorkscrew && hasWineBottle)
+    {
+      switch(perMouseClick3)
+      {
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Yo, do you have anything I could open this bottle with?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Nah man, sorry.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        image(hippie2, 50, 950);        
+        break;
+      case 3: 
+        perMouseClick3 = 0;
+        talkHippie2 = false;
+        break;
+      }
+    }
+
     //textlines of hippie 3 watermission
-    
+
     if (talkHippie3 && watermission && askedForWater == false)
     { 
       switch(perMouseClick3)
@@ -162,8 +229,10 @@ class Dialogue
         break;
       }
     }
-    
-    if (talkHippie3 && watermission && askedForWater)
+
+
+
+    if (talkHippie3 && watermission && askedForWater && talkingAboutWaterHippie3)
     { 
       switch(perMouseClick3)
       {
@@ -187,14 +256,49 @@ class Dialogue
         canGoToBar = true;
         break;
       case 3: 
+        watermission = false;
+        talkingToHippiesWater = false;
+        talkingAboutWaterHippie3 = false;
         perMouseClick3 = 0;
-        talkingToHippiesWater = true;
+        talkingToHippiesWater = false;
+        talkHippie3 = false;
+        break;
+      }
+    }
+    
+
+
+    if (talkHippie3 && missionCorkscrew && hasWineBottle)
+    {
+      switch(perMouseClick3)
+      {
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Yo, do you have anything I could open this bottle with?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Mmm nope. Try asking someone else.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        image(hippie4, 50, 950);        
+        break;
+      case 3: 
+        perMouseClick3 = 0;
         talkHippie3 = false;
         break;
       }
     }
 
-    
+
 
     //text lines of hippie 4
     if (talkHippie4 && talkingToHippiesWater)
@@ -226,6 +330,34 @@ class Dialogue
         break;
       }
     }
+    if (talkHippie4 && missionCorkscrew && hasWineBottle)
+    {
+      switch(perMouseClick3)
+      {
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Yo, do you have anything I could open this bottle with?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("No, sorry, I only do drugs.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        image(hippie3, 50, 950);        
+        break;
+      case 3: 
+        perMouseClick3 = 0;
+        talkHippie4 = false;
+        break;
+      }
+    }
 
     //text lines of hippie 5
     if (talkHippie5 && talkingToHippiesWater)
@@ -252,6 +384,35 @@ class Dialogue
         break;
       case 3: 
         askedForWater = true;
+        perMouseClick3 = 0;
+        talkHippie5 = false;
+        break;
+      }
+    }
+
+    if (talkHippie5 && missionCorkscrew && hasWineBottle)
+    {
+      switch(perMouseClick3)
+      {
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Yo, do you have anything I could open this bottle with?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Nahh...", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        image(hippie5, 50, 950);        
+        break;
+      case 3: 
         perMouseClick3 = 0;
         talkHippie5 = false;
         break;
@@ -354,6 +515,7 @@ class Dialogue
         image(max, 50, 950);
         break;
       case 7: 
+
         watermission = true;
         allowingToTalkToHippie = true;
         beginOfDialogueFirstScene = false;
