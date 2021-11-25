@@ -48,17 +48,21 @@ class Dialogue
 
 
   //interacting with hippies
+  boolean blackScreenTransition = false;
   boolean backToScene = true;
   boolean talkingAboutWaterHippie3 = true;
   boolean allowingToTalkToHippie = false;
   boolean talkingToHippiesWater = false;
   boolean askedForWater = false;
+  boolean askedForCorkscrew = false;
   boolean missionCorkscrew = false;
+  boolean missionCorkscrewFinished = false;
   boolean talkHippie1 = false;
   boolean  talkHippie2 = false;
   boolean  talkHippie3 = false;
   boolean talkHippie4 = false;
   boolean talkHippie5 = false;
+  boolean talkFriends = false;
   int textXTalkingHippie2Line= 200;
   int textYTalkingHippie2Line = 1000;
   int textSizeTalkingHippie2Line= 30;
@@ -69,12 +73,17 @@ class Dialogue
 
   void hippieTalk()
   {
+    if (blackScreenTransition)
+    {
+      background (0);
+    }
+
     //text lines of hippie 2
 
-if (hasWineBottle)
-{ 
-  missionCorkscrew = true;
-}
+    if (hasWineBottle || hasSeenWineBottle)
+    { 
+      missionCorkscrew = true;
+    }
 
     //when watermission is active
 
@@ -109,7 +118,7 @@ if (hasWineBottle)
       }
     }
 
-    if (talkHippie1 && missionCorkscrew && hasWineBottle)
+    if (talkHippie1 && missionCorkscrew && (hasWineBottle || hasSeenWineBottle) && askedForCorkscrew == false)
     {
       switch(perMouseClick3)
       {
@@ -169,7 +178,7 @@ if (hasWineBottle)
       }
     }
 
-    if (talkHippie2 && missionCorkscrew && hasWineBottle)
+    if (talkHippie2 && missionCorkscrew && (hasWineBottle || hasSeenWineBottle) && askedForCorkscrew == false)
     {
       switch(perMouseClick3)
       {
@@ -265,10 +274,10 @@ if (hasWineBottle)
         break;
       }
     }
-    
 
 
-    if (talkHippie3 && missionCorkscrew && hasWineBottle)
+
+    if (talkHippie3 && missionCorkscrew && (hasWineBottle || hasSeenWineBottle) && askedForCorkscrew == false)
     {
       switch(perMouseClick3)
       {
@@ -330,7 +339,7 @@ if (hasWineBottle)
         break;
       }
     }
-    if (talkHippie4 && missionCorkscrew && hasWineBottle)
+    if (talkHippie4 && missionCorkscrew && (hasWineBottle || hasSeenWineBottle) && askedForCorkscrew == false)
     {
       switch(perMouseClick3)
       {
@@ -389,8 +398,38 @@ if (hasWineBottle)
         break;
       }
     }
+    if (talkHippie5 && missionCorkscrew && hasSeenWineBottle && hasWineBottle == false)
+    {
+      switch(perMouseClick3)
+      {
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Yo, do you have anything I could open this bottle with?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie2Line);
+        text("Yeah I have one, but I'm not giving it until I make sure that your using it for a bottle \n of wine.", textXTalkingHippie2Line, textYTalkingHippie2Line);        
+        image(hippie5, 50, 950);        
+        break;
+      case 7: 
+        askedForCorkscrew = true;   
+        perMouseClick3 = 0;
+        talkHippie5 = false;
+        break;
+      }
+    }
 
-    if (talkHippie5 && missionCorkscrew && hasWineBottle)
+
+    if (talkHippie5 && missionCorkscrew && hasWineBottle )
     {
       switch(perMouseClick3)
       {
@@ -409,12 +448,162 @@ if (hasWineBottle)
         fill(textColor);
         textFont(mono);
         textSize (textSizeTalkingHippie1Line);
-        text("Nahh...", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        text("You came to the right guy! I have this corkscrew, but I’m not giving it away for free.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
         image(hippie5, 50, 950);        
         break;
-      case 3: 
+      case 3:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Alright, what do you want?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 4: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie2Line);
+        text("I noticed your friend, she’s very pretty. If you were to, say, promise to give her \n this special drink I made her, you could have the corkscrew. ", textXTalkingHippie2Line, textYTalkingHippie2Line);        
+        image(hippie5, 50, 950); 
+        break;
+      case 5:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("You got it!", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 6: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Really? Thanks man, here you go. ", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        image(hippie5, 50, 950); 
+        break;
+      case 7:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("*opens bottle of wine* ", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 8: 
+        talkFriends = true;
+        missionCorkscrewFinished = true;
+        askedForCorkscrew = true;
+        missionCorkscrew = false;
         perMouseClick3 = 0;
         talkHippie5 = false;
+        allowingToTalkToHippie = false;
+        break;
+      }
+    }
+
+    //talking to friends
+    if (talkFriends && missionCorkscrewFinished )
+    {
+      switch(perMouseClick3)
+      {
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Haha! Beat you to it, guys!", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Wait, why do you have 2 drinks?", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        image(daisy, 50, 950);        
+        break;
+      case 3:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Well, actually, this one's for you. That guy over there made me give it to you.", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 4: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Uhhh no thanks, dude. I don’t like that kind of stuff. You can have it.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        image(daisy, 50, 950); 
+        break;
+      case 5: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Hell yeah, double drinks for me!", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        image(john, 50, 950); 
+        break;
+      case 6: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Now that everyone has a drink you can all enjoy the party. *a few hours go by*", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        break;
+      case 7: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("It’s already midnight?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(daisy, 50, 950); 
+        break;
+      case 8: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Yeah, time flies when you’re having fun.", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(max, 50, 950); 
+        break;
+      case 9: 
+        partyMusic.stop();
+        blackScreenTransition = true;
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeBlackScreen);
+        text("As soon as your friend was done talking, things started to \n change around you..", textXBlackScreen, textYBlackScreen);
+        break;
+      case 10:
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeBlackScreen);
+        text("Uhh guys, what’s happening?", textXBlackScreen, textYBlackScreen); 
+        break;
+      case 11:
+        blackScreenTransition = false;
+        isMidnight = true;
+        currentScene = 4;
+        talkFriends = false;
+        perMouseClick3 = 0;
         break;
       }
     }
@@ -457,6 +646,11 @@ if (hasWineBottle)
     {
       perMouseClick3++;
       talkHippie1 = true;
+    }
+    if (mouseX >= 200 && mouseX <= 300 + widthHippie && mouseY >= 580 && mouseY <= 670 + heigthHippie && currentScene == 0 && allowingToTalkToHippie == false)
+    {
+      perMouseClick3++;
+      talkFriends = true;
     }
   }
 

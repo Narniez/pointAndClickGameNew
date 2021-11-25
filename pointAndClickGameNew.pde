@@ -31,7 +31,7 @@ Gif john2;
 //keeps track of the scenes
 int currentScene; 
 
-float jerryCanX = 100;
+float jerryCanX = 60;
 float jerryCanY = 700;
 float jerryCanWidth = 460;
 float jerryCanHeight = 400;
@@ -76,12 +76,13 @@ boolean goToScene4 = false;
 boolean midnightScene = false;
 boolean hasJerryCan = false;
 boolean hasWineBottle = false;
+boolean hasSeenWineBottle = false;
 boolean hasFireworkBox = false;
 boolean hasFlareGun = false;
 boolean hasRock = false;
 boolean hasBrokenBottle = false;
 boolean canGoToVW = true;
-boolean canGoToTent = true;
+boolean canGoToTent = false;
 boolean canGoToBar = false;
 boolean isMidnight = false;
 boolean showsKeyInTent = false;
@@ -94,7 +95,7 @@ SoundFile partyMusic;
 SoundFile satanMusic;
 SoundFile pickupSound;
 void setup(){
-  size(1920,1080);
+   size(1920,1080);
   //fullScreen();
   
   //currentScene = 0;
@@ -169,7 +170,7 @@ void setup(){
    new GameObject[]{},
    new GameObject[]{});
    
-   scene04 = new Scene(0,0,height,width,loadImage("busScene2.png"),
+   scene04 = new Scene(0,0,height,width,loadImage("busScene3.png"),
    new GameObject[]{},
    new GameObject[]{},
    new GameObject[]{new GameObject("arrowVW",900,960,70,70,"arrowDown.png")},
@@ -238,7 +239,11 @@ void draw(){
     image(wineBottle,wineBottleX,wineBottleY,wineBottleWidth,wineBottleHeight);
     if(mouseX >= wineBottleX && mouseX <= wineBottleX + wineBottleWidth &&
        mouseY >= wineBottleY && mouseY <= wineBottleY + wineBottleHeight){
-         text("A bottle of wine, Nice! Wait, it hasn’t been opened yet. Awh man, gotta find a corkscrew.", 200, 950);
+         hasSeenWineBottle = true;
+        fill(0,100);
+        rect(0,975,1920,100);
+        fill(255);
+        text("A bottle of wine, Nice! Wait, it hasn’t been opened yet. Awh man, gotta find a corkscrew.", 200, 1025);
         image(john, 50, 850);
        }
     if(mouseX >= wineBottleX && mouseX <= wineBottleX + wineBottleWidth &&

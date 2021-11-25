@@ -63,7 +63,7 @@ class Scene {
     }
     else if(i.mouseIsHovering) {
         textSize(20);
-        text("Nope",1660,730);
+        text("I should check out the big tent first.",860,860);
     }
   }
     for(GameObject i : arrowVW ){
