@@ -81,7 +81,7 @@ boolean hasRock = false;
 boolean hasBrokenBottle = false;
 boolean canGoToVW = true;
 boolean canGoToTent = true;
-boolean canGoToBar = true;
+boolean canGoToBar = false;
 boolean isMidnight = true;
 boolean showsKeyInTent = false;
 boolean hasBusKey = false;
@@ -97,7 +97,7 @@ void setup(){
   //fullScreen();
   
   //currentScene = 0;
-  currentScene = 4;
+  currentScene = 0;
   mono = createFont("yoster.ttf",50);
   
   jerryCan = loadImage("gasCan.png");

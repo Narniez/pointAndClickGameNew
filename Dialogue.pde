@@ -49,6 +49,7 @@ class Dialogue
   //interacting with hippies
   boolean allowingToTalkToHippie = false;
   boolean talkingToHippiesWater = false;
+  boolean askedForWater = false;
   boolean talkHippie1 = false;
   boolean  talkHippie2 = false;
   boolean  talkHippie3 = false;
@@ -67,157 +68,195 @@ class Dialogue
     //text lines of hippie 2
 
     //when watermission is active
- 
-      //text lines of hippie 1
-      if (talkHippie1 && talkingToHippiesWater)
-      {
-        switch(perMouseClick3)
-        {
-        case 1:
-          fill(0, 100);
-          rect(0, 975, 1920, 100); 
-          fill(textColor);
-          textFont(mono);
-          textSize (textSizeTalkingHippie1Line);
-          text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
-          image(john, 50, 950);
-          break;
-        case 2: 
-          fill(0, 100);
-          rect(0, 975, 1920, 100); 
-          fill(textColor);
-          textFont(mono);
-          textSize (textSizeTalkingHippie1Line);
-          text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);
-          image(hippie1, 50, 950);
-          break;
-        case 3: 
-          perMouseClick3 = 0;
-          talkHippie1 = false;
-          break;
-        }
-      }
 
-      //text lines of hippie 2
-      if (talkHippie2 && talkingToHippiesWater)
+    //text lines of hippie 1
+    if (talkHippie1 && talkingToHippiesWater)
+    {
+      switch(perMouseClick3)
       {
-        switch(perMouseClick3)
-        {
-        case 1:
-          fill(0, 100);
-          rect(0, 975, 1920, 100); 
-          fill(textColor);
-          textFont(mono);
-          textSize (textSizeTalkingHippie1Line);
-          text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
-          image(john, 50, 950);
-          break;
-        case 2: 
-          fill(0, 100);
-          rect(0, 975, 1920, 100); 
-          fill(textColor);
-          textFont(mono);
-          textSize (textSizeTalkingHippie1Line);
-          text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
-          image(hippie2, 50, 950);        
-          break;
-        case 3: 
-          perMouseClick3 = 0;
-          talkHippie2 = false;
-          break;
-        }
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(hippie1, 50, 950);
+        break;
+      case 3: 
+        askedForWater = true;
+        perMouseClick3 = 0;
+        talkHippie1 = false;
+        break;
       }
+    }
 
-      //textlines of hippie 3
-      if (talkHippie3 && watermission)
-      { 
-        switch(perMouseClick3)
-        {
-        case 1:
-          fill(0, 100);
-          rect(0, 975, 1920, 100); 
-          fill(textColor);
-          textFont(mono);
-          textSize (textSizeTalkingHippie1Line);
-          text("Hey, can I maybe grab myself a drink?", textXTalkingHippie1Line, textYTalkingHippie1Line);
-          image(john, 50, 950);
-          break;
-        case 2: 
-          fill(0, 100);
-          rect(0, 975, 1920, 100); 
-          fill(textColor);
-          textFont(mono);
-          textSize (textSizeTalkingHippie2Line);
-          text(" Nah man, the booth isn’t open right now. I’m too high to be dealing with people right now. \n Maybe if I had some water, I would feel better.", textXTalkingHippie2Line, textYTalkingHippie2Line);
-          image(hippie4, 50, 915);
-          break;
-        case 3: 
-          perMouseClick3 = 0;
-          talkingToHippiesWater = true;
-          talkHippie3 = false;
-          break;
-        }
-      }
-      //text lines of hippie 4
-      if (talkHippie4 && talkingToHippiesWater)
+    //text lines of hippie 2
+    if (talkHippie2 && talkingToHippiesWater)
+    {
+      switch(perMouseClick3)
       {
-        switch(perMouseClick3)
-        {
-        case 1:
-          fill(0, 100);
-          rect(0, 975, 1920, 100); 
-          fill(textColor);
-          textFont(mono);
-          textSize (textSizeTalkingHippie1Line);
-          text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
-          image(john, 50, 950);
-          break;
-        case 2: 
-          fill(0, 100);
-          rect(0, 975, 1920, 100); 
-          fill(textColor);
-          textFont(mono);
-          textSize (textSizeTalkingHippie1Line);
-          text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
-          image(hippie3, 50, 950);        
-          break;
-        case 3: 
-          perMouseClick3 = 0;
-          talkHippie4 = false;
-          break;
-        }
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        image(hippie2, 50, 950);        
+        break;
+      case 3: 
+        askedForWater = true;
+        perMouseClick3 = 0;
+        talkHippie2 = false;
+        break;
       }
-      
-      //text lines of hippie 5
-      if (talkHippie5 && talkingToHippiesWater)
-      {
-        switch(perMouseClick3)
-        {
-        case 1:
-          fill(0, 100);
-          rect(0, 975, 1920, 100); 
-          fill(textColor);
-          textFont(mono);
-          textSize (textSizeTalkingHippie1Line);
-          text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
-          image(john, 50, 950);
-          break;
-        case 2: 
-          fill(0, 100);
-          rect(0, 975, 1920, 100); 
-          fill(textColor);
-          textFont(mono);
-          textSize (textSizeTalkingHippie1Line);
-          text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
-          image(hippie5, 50, 950);        
-          break;
-        case 3: 
-          perMouseClick3 = 0;
-          talkHippie5 = false;
-          break;
-        }
-      }
+    }
+
+    //textlines of hippie 3 watermission
     
+    if (talkHippie3 && watermission && askedForWater == false)
+    { 
+      switch(perMouseClick3)
+      {
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Hey, can I maybe grab myself a drink?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie2Line);
+        text(" Nah man, the booth isn’t open right now. I’m too high to be dealing with people right now. \n Maybe if I had some water, I would feel better.", textXTalkingHippie2Line, textYTalkingHippie2Line);
+        image(hippie4, 50, 915);
+        break;
+      case 3: 
+        perMouseClick3 = 0;
+        talkingToHippiesWater = true;
+        talkHippie3 = false;
+        break;
+      }
+    }
+    
+    if (talkHippie3 && watermission && askedForWater)
+    { 
+      switch(perMouseClick3)
+      {
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie2Line);
+        text("So, you know you’re in the drinking booth right? That means you’re surrounded by beverages. \n Including water.", textXTalkingHippie2Line, textYTalkingHippie2Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie2Line);
+        text(" Yoo, thanks man. You know what, you’re cool. Take whatever drink you want, it’s on me.", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(hippie4, 50, 915);
+        canGoToBar = true;
+        break;
+      case 3: 
+        perMouseClick3 = 0;
+        talkingToHippiesWater = true;
+        talkHippie3 = false;
+        break;
+      }
+    }
+
+    
+
+    //text lines of hippie 4
+    if (talkHippie4 && talkingToHippiesWater)
+    {
+      switch(perMouseClick3)
+      {
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        image(hippie3, 50, 950);        
+        break;
+      case 3: 
+        askedForWater = true;
+        perMouseClick3 = 0;
+        talkHippie4 = false;
+        break;
+      }
+    }
+
+    //text lines of hippie 5
+    if (talkHippie5 && talkingToHippiesWater)
+    {
+      switch(perMouseClick3)
+      {
+      case 1:
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("Hey man, do you know where I can find some water?", textXTalkingHippie1Line, textYTalkingHippie1Line);
+        image(john, 50, 950);
+        break;
+      case 2: 
+        fill(0, 100);
+        rect(0, 975, 1920, 100); 
+        fill(textColor);
+        textFont(mono);
+        textSize (textSizeTalkingHippie1Line);
+        text("You should find that in the drinking booth, obviously.", textXTalkingHippie1Line, textYTalkingHippie1Line);        
+        image(hippie5, 50, 950);        
+        break;
+      case 3: 
+        askedForWater = true;
+        perMouseClick3 = 0;
+        talkHippie5 = false;
+        break;
+      }
+    }
   }
 
 
@@ -395,10 +434,6 @@ class Dialogue
       blackScreenHere = false;
       break;
     }
-  }
-  
-  void drawDialogueItems(){
- 
   }
   //locates object, isnt applied to final game
   void locateObject()
