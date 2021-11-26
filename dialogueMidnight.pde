@@ -355,6 +355,7 @@ class dialogueMidnight {
         rect(0, 975, 1920, 100); 
         fill(textColor);
         textFont(mono);
+        textSize(30);
         text("Alright man relax, \n I thought you hippies were supposed to be chill.", textXBeginScene, textYBeginScene);
         image(john2, 50, 950);
         break;

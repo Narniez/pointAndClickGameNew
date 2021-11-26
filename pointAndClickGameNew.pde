@@ -73,11 +73,6 @@ Dialogue dialogue1 = new Dialogue();
 dialogueMidnight dialogueMidnight1 = new dialogueMidnight();
 Inventory inventory1 = new Inventory();
 
-boolean goToMainScene = false;
-boolean goToScene2 = false;
-boolean goToScene3 = false;
-boolean goToScene4 = false;
-boolean midnightScene = false;
 boolean hasJerryCan = false;
 boolean hasWineBottle = false;
 boolean hasSeenWineBottle = false;
